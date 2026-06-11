@@ -104,7 +104,7 @@ impl<C> AsciiString<C> {
     /// # Panics
     /// Panics if `idx` is larger than the `AsciiString`'s length.
     #[inline(always)]
-    pub fn insert_ascii(&mut self, idx: usize, ascii: &AsciiString) {
+    pub fn insert_ascii(&mut self, idx: usize, ascii: &AsciiString<C>) {
         self.1.splice(idx..idx, ascii.as_bytes().iter().cloned());
     }
 
