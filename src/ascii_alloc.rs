@@ -169,12 +169,12 @@ impl<C> AsciiString<C> {
         Ok(())
     }
 
-    /// Appends a given `AsciiString` onto the end of this `AsciiString`.
+    /// Appends a given `AsciiStr` onto the end of this `AsciiString`.
     ///
     /// # Panics
     /// Panics if the new capacity exceeds [`isize::MAX`] bytes.
     #[inline(always)]
-    pub fn push_ascii(&mut self, other: &AsciiString) {
+    pub fn push_ascii(&mut self, other: &AsciiStr<C>) {
         self.1.extend_from_slice(other.as_bytes());
     }
 
