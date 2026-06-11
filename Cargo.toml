@@ -7,7 +7,10 @@ edition = "2024"
 homepage = "https://github.com/dacut/ascii-casing"
 license = "MIT"
 repository = "https://github.com/dacut/ascii-casing.git"
-version = "0.1.0"
+version = "0.1.1"
+
+[package.metadata.docs.rs]
+all-features = true
 
 [features]
 default = ["std"]
