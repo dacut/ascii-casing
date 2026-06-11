@@ -1,0 +1,23 @@
+[package]
+name = "ascii-casing"
+description = "ASCII strings with pluggable case sensitivity"
+keywords = ["ASCII"]
+authors = ["David Cuthbert <dacut@kanga.org>"]
+edition = "2024"
+homepage = "https://github.com/dacut/ascii-casing"
+license = "MIT"
+repository = "https://github.com/dacut/ascii-casing.git"
+version = "0.1.0"
+
+[features]
+default = ["std"]
+alloc = ["serde?/alloc"]
+serde = ["dep:serde"]
+std = ["alloc", "serde?/std"]
+
+[dependencies]
+serde = { version = "1.0", optional = true, default-features = false }
+
+[dev-dependencies]
+pretty_assertions = "1.4"
+serde_json = "1.0"
