@@ -224,6 +224,12 @@ fn test_ascii_string_deref_and_borrow() {
     assert_eq!(roundtrip, owned);
     let converted = InsensitiveString::from(slice);
     assert_eq!(converted, owned);
+
+    let cloned = owned.clone();
+    assert_eq!(cloned, owned);
+    let mut target = InsensitiveString::new();
+    target.clone_from(&owned);
+    assert_eq!(target, owned);
 }
 
 #[cfg(feature = "alloc")]
