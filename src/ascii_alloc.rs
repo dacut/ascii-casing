@@ -310,6 +310,19 @@ impl<C> Borrow<AsciiStr<C>> for AsciiString<C> {
     }
 }
 
+// Implemented manually instead of derived so that `C` is not required to be `Clone`.
+impl<C> Clone for AsciiString<C> {
+    #[inline(always)]
+    fn clone(&self) -> Self {
+        Self(PhantomData, self.1.clone())
+    }
+
+    #[inline(always)]
+    fn clone_from(&mut self, source: &Self) {
+        self.1.clone_from(&source.1);
+    }
+}
+
 impl<C> Default for AsciiString<C> {
     #[inline(always)]
     fn default() -> Self {
